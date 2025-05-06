@@ -26,5 +26,5 @@ root_agent = LlmAgent(
         """,
     description="Feedback collection agent",
     output_schema=Feedback, #Output schema for the agent (Pydantic model)
-    output_key="feedback", #Key to store the output in the response
+    output_key="feedback", #Key to store the output in the agent's state.
 )
