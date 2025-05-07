@@ -2,6 +2,7 @@ from google.adk.agents import Agent
 from google.adk.tools.agent_tool import AgentTool
 from google.adk.tools import google_search  
 
+# IMP, CANNOT USE BUILTIN TOOLS AS SUBAGENTS. NEED TO WRAP AROUND AGENTTOOL.
 search_agent = Agent(
    name="search_agent",
    model="gemini-2.0-flash",
@@ -37,6 +38,6 @@ root_agent = Agent(
     You coordinate between different agents to provide comprehensive solutions.""",
     description="Root agent that manages other agents.",
     sub_agents=[idea_agent, marketing_agent],
-    tools=[AgentTool(search_agent)],
+    tools=[AgentTool(search_agent)],  # Use AgentTool to wrap around the search_agent
     output_key="final_output",
 )
